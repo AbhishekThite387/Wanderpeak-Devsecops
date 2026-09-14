@@ -35,9 +35,7 @@ function goToDestinations() {
         .scrollIntoView({
             behavior: "smooth"
         });
-
 }
-
 
 discoverBtn.addEventListener(
     "click",

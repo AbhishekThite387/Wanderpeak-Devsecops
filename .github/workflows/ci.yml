@@ -70,3 +70,14 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
+      
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Tag Docker image
+        run: |
+          docker tag wanderpeak:latest 097743207604.dkr.ecr.us-east-2.amazonaws.com/wanderpeak:latest
+
+      - name: Push Docker image to ECR
+        run: |
+          docker push 097743207604.dkr.ecr.us-east-2.amazonaws.com/wanderpeak:latest

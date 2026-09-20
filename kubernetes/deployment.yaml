@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: wanderpeak
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: wanderpeak
+
+  template:
+    metadata:
+      labels:
+        app: wanderpeak
+
+    spec:
+      containers:
+        - name: wanderpeak
+          image: 097743207604.dkr.ecr.us-east-2.amazonaws.com/wanderpeak:latest
+
+          ports:
+            - containerPort: 8080
